@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="product_template_view_form_inherit" model="ir.ui.view">
+            <field name="name">product_template_view_form_inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='detailed_type']" position="after">
+                    <field name="item_group"/>
+                    <field name="catalog_no"/>
+                    <field name="gsm" attrs="{'invisible': [('catalog_no','=',False)]}"/>
+                    <field name="width" attrs="{'invisible': [('catalog_no','=',False)]}"/>
+                    <field name="length" attrs="{'invisible': [('catalog_no','=',False)]}"/>
+                    <field name="quality" attrs="{'invisible': [('catalog_no','=',False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="identity"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!--        Product Template Search View-->
+        <record id="product_template_search_form_inherit" model="ir.ui.view">
+            <field name="name">product_template_search_form_inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <search string="Product">
+                    <field name="gsm"/>
+                    <field name="width"/>
+                    <field name="length"/>
+                    <field name="quality"/>
+                    <filter string="GSM" name="gsm" context="{'group_by':'gsm'}"/>
+                    <filter string="Width" name="width" context="{'group_by':'width'}"/>
+                    <filter string="Length" name="length" context="{'group_by':'length'}"/>
+                    <filter string="Quality" name="quality" context="{'group_by':'quality'}"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

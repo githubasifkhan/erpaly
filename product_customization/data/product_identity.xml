@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--  Activity Order Sequence -->
+        <record id="product_identity_sequence" model="ir.sequence">
+            <field name="name">Product Identity Sequence</field>
+            <field name="code">product.template</field>
+            <field name="active">TRUE</field>
+            <field name="prefix"></field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>
