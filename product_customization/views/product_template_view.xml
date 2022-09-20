@@ -8,6 +8,7 @@
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='detailed_type']" position="after">
+                    <field name="description"/>
                     <field name="item_group"/>
                     <field name="catalog_no"/>
                     <field name="gsm" attrs="{'invisible': [('catalog_no','=',False)]}"/>
